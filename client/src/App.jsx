@@ -7,6 +7,8 @@ const httpLink = createHttpLink({
 	uri: '/graphql'
 });
 
+import { StoreProvider } from './utils/GlobalStore';
+
 const authLink = setContext((_, { headers }) => {
 	const token = localStorage.getItem('id_token');
 
@@ -26,7 +28,9 @@ const client = new ApolloClient({
 function App() {
 	return (
 		<ApolloProvider client={client}>
-			<Outlet />
+			<StoreProvider>
+				<Outlet />
+			</StoreProvider>
 		</ApolloProvider>
 	);
 }
