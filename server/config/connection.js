@@ -1,6 +1,5 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1/mern-gql-boiler-plate');
 
-mongoose.connect(process.env.MONGODB_URI|| "mongodb://127.0.0.1/mern-gql-boiler-plate");
-
-module.exports = mongoose.connection
+module.exports = mongoose.connection;
